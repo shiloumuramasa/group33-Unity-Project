@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour
 
         if (kb.spaceKey.wasPressedThisFrame) Jump();
     }
+    private void Move()
+    {
+        rb.linearVelocityX = moveInput * moveSpeed;
+    }
 
     private void Jump()
     {
@@ -62,8 +66,4 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
-    private void Move()
-    {
-        rb.linearVelocityX = moveInput * moveSpeed;
-    }
 }
