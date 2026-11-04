@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed = 0f;
+    public float moveSpeed = 8f;
     public float jumpForce = 14f;
 
     public Transform groundCheck;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    private void Update()
+    void Update()
     {
 
         ReadInput();
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         Keyboard kb = Keyboard.current;
 
-        moveInput = 0f;
+        moveInput = 0;
 
         if (kb.aKey.isPressed) moveInput = -1f;
         if (kb.dKey.isPressed) moveInput = 1f;
