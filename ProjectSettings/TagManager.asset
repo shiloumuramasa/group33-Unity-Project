@@ -38,6 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: SkyBG
+    uniqueID: 2185912907
+    locked: 0
+  - name: CloudBG
+    uniqueID: 465884355
+    locked: 0
+  - name: MountainBG
+    uniqueID: 3421106517
+    locked: 0
+  - name: BackTreesBG
+    uniqueID: 1789597205
+    locked: 0
+  - name: FrontTreesBG
+    uniqueID: 3439494815
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
