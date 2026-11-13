@@ -79,7 +79,11 @@ public class PlayerController : MonoBehaviour
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> parent of f1213ce (Fixed bounce pad)
 =======
 }
 >>>>>>> parent of f1213ce (Fixed bounce pad)
