@@ -1,16 +1,14 @@
-
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.Hierarchy;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+
+
 public class PlayerController : MonoBehaviour
 {
-    public Animator animator;
 
     public float moveSpeed = 8f;
     public float jumpForce = 14f;
@@ -32,6 +30,11 @@ public class PlayerController : MonoBehaviour
     {
 
         ReadInput();
+
+        if (transform.position.y < -30)
+        {
+            Die();
+        }
     }
 
     private void FixedUpdate()
@@ -49,33 +52,28 @@ public class PlayerController : MonoBehaviour
         if (kb.dKey.isPressed) moveInput = 1f;
 
         if (kb.spaceKey.wasPressedThisFrame) Jump();
-
-        if (moveInput != 0)
-        {
-            animator.SetBool("isRunning", true);
-        }
-        else
-        {
-            animator.SetBool("isRunning", false);
-        }
-
     }
     private void Move()
     {
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocityX = moveInput * moveSpeed;
     }
 
     private void Jump()
     {
         if (IsGrounded())
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            rb.linearVelocityY = jumpForce;
         }
     }
 
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
+    private void Die()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainGame");
     }
 
 }
