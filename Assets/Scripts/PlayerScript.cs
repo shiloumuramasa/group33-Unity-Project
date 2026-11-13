@@ -30,11 +30,6 @@ public class PlayerController : MonoBehaviour
     {
 
         ReadInput();
-
-        if (transform.position.y < -30)
-        {
-            Die();
-        }
     }
 
     private void FixedUpdate()
@@ -69,11 +64,6 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-    }
-
-    private void Die()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainGame");
     }
 
 }
