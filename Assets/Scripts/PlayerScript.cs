@@ -78,8 +78,4 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> parent of f1213ce (Fixed bounce pad)
