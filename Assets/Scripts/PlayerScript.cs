@@ -1,14 +1,16 @@
+
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Hierarchy;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-
-
 public class PlayerController : MonoBehaviour
 {
+    public Animator animator;
 
     public float moveSpeed = 8f;
     public float jumpForce = 14f;
@@ -47,17 +49,27 @@ public class PlayerController : MonoBehaviour
         if (kb.dKey.isPressed) moveInput = 1f;
 
         if (kb.spaceKey.wasPressedThisFrame) Jump();
+
+        if (moveInput != 0)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
+
     }
     private void Move()
     {
-        rb.linearVelocityX = moveInput * moveSpeed;
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
     }
 
     private void Jump()
     {
         if (IsGrounded())
         {
-            rb.linearVelocityY = jumpForce;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
 
