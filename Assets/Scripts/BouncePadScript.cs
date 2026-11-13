@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BouncePadScript : MonoBehaviour
 {
-    public float bounce = 20f;
+    private float bounce = 20f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
