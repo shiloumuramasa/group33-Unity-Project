@@ -8,12 +8,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+
+
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
 
     public float moveSpeed = 8f;
     public float jumpForce = 14f;
+
 
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
@@ -78,4 +81,13 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
+    public void Die()
+    {
+        Debug.Log("Player has died!");
+
+        // Restart the current level
+        UnityEngine.SceneManagement.SceneManager.LoadScene(
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex
+        );
+    }
 }

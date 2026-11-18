@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float jumpCooldown = 2f;
     public float jumpForce = 5f;
 
+
     public Animations animations;
 
     private float lastJump;
